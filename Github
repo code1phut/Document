@@ -11,3 +11,5 @@
 - git remote add origin https://github.com/user/repo.git
 ## Change remote 
 - git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+## coppy ssh key
+- cat ~/.ssh/id_rsa.pub
