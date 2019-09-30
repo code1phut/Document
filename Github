@@ -1,0 +1,13 @@
+##Generrate privete key 
+- ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+- eval "$(ssh-agent -s)"
+- ssh-add ~/.ssh/id_rsa
+## Config email and name
+- git config --global user.email "email@example.com"
+- git config --global user.name "Name"
+# You can remove passphrase for the key (enter)
+- ssh-keygen -p
+## Add new remote
+- git remote add origin https://github.com/user/repo.git
+## Change remote 
+- git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
