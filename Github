@@ -13,3 +13,8 @@
 - git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 ## coppy ssh key
 - cat ~/.ssh/id_rsa.pub
+
+## Creating a GitHub personal access token.
+https://mycyberuniverse.com/how-fix-fatal-authentication-failed-for-https-github-com.html
+
+
