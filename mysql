@@ -4,3 +4,9 @@ sudo mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 # account default 
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'my_password';
+# không kết nối được mysql để migrate mặc dù đã có pass 
+Step 1 :
+Sudo mysql; (có nghĩa là bạn đã kết nối với mysql với tư cách là người dùng Unix 'root' và bạn có thể nhập các truy vấn SQL)
+Step 2:
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+(trong đó 'mysql_native_password' có nghĩa là - để tắt plugin auth_socket.)
