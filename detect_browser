@@ -1,0 +1,47 @@
+/**
+ * detect browser
+ * @returns {boolean}
+ */
+function isSupportBrowser() {
+
+    var flag = false;
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    var isChromium = window.chrome;
+    var vendorName = window.navigator.vendor;
+    var isIOSChrome = userAgent.match("crios");
+    // regex
+    var isSafari = /^mozilla\/[0-9.]* \([^)]*\) applewebkit\/[0-9.]* \([^)]*\) version\/[0-9.]* (mobile\/[^ ]* ){0,1}safari\/[0-9.]*$/.test(userAgent);
+    var isChrome = /^mozilla\/[^ ]* \([^)]*\) applewebkit\/[^ ]* \([^)]*\) (crios\/[^ ]* ){0,1}(version\/[^ ]* ){0,1}(chrome\/[^ ]* ){0,1}(mobile(\/[^ ]*){0,1} ){0,1}safari\/[0-9.]*$/.test(userAgent)
+    // is chromiumBase
+    var chromiumBase = isChromium !== null &&
+        typeof isChromium !== "undefined" &&
+        vendorName === "Google Inc.";
+    // detect device is Mobile
+    var isMobileDevice = window.matchMedia("only screen and (max-width: 760px)").matches;
+    // dynamic text for modal alert
+    var titleBrowser =  isMobileDevice ? "ご利用中のブラウザではご利用いただけません。" : "Internet Explorerではご利用いただけません";
+    var contentBrowser =  isMobileDevice ? "推奨ブラウザ<br />Chrome / Safari 最新" : "推奨ブラウザ<br />Chrome / Firefox 最新";
+    $("#title-browser").html(titleBrowser);
+    $("#content-browser").html(contentBrowser);
+
+    if (isMobileDevice) {
+        if (isIOSChrome || isSafari) {
+            // is Google Chrome on IOS and safari
+            flag = true;
+        } else if(chromiumBase && isChrome) {
+            // is google chrome
+            flag = true;
+        } else {
+            // not Google Chrome
+            // 2022-02-10 Pixel4での不具合のため、コメント
+            // $('#ieErrorModal').modal('show');
+            flag = true;
+        }
+    } else if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
+        $('#ieErrorModal').modal('show');
+    } else {
+        flag = true;
+    }
+
+    return flag;
+}
