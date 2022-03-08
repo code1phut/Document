@@ -1,0 +1,2 @@
+#Push file to server
+scp -i [key_path] [file_source_path] user@ip:/[file_target_folder]
