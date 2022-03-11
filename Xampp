@@ -1,0 +1,17 @@
+#Xampp
+I found the solution:
+
+Make sure port 80 is not being used (Use Network Utility and scan for port 80. If you found any application using port 80, then kill it)
+Open terminal and execute
+
+`sudo apachectl stop` 
+
+(ignore, if you get any error)
+
+On the same terminal window execute
+
+`sudo /Applications/XAMPP/xamppfiles/bin/apachectl start`
+
+Open XAMPP control panel, your apache server might have started by now, if not then you can start manually by clicking start button.
+
+This worked for me!!
