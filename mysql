@@ -10,3 +10,25 @@ Sudo mysql; (có nghĩa là bạn đã kết nối với mysql với tư cách l
 Step 2:
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';
 (trong đó 'mysql_native_password' có nghĩa là - để tắt plugin auth_socket.)
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+#MySQL Database won’t start in XAMPP Manager-osx
+#Steps
+1) Open terminal and type
+
+`sudo su`
+#and then put in your password
+
+2) Then type
+
+`ps aux | grep mysql`
+(just copy and paste this)
+
+3) You will need to get the process id of mysql. There should be number near the top, something like 739 or 8827
+
+4) Kill the process using
+
+`kill -9 {process id}`
+
+this should look something like this: kill -9 739
